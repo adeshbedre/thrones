@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.geektrust.tameofthrones.constants.TameOfThronesConstants;
 
-public class OutputService {
+public class OutputWriter {
 
 	public void printGoldenThroneWinner(List<String> alliesList) {
 		System.out.println("Who is the ruler of Southeros?");

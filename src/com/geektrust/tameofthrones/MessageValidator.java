@@ -4,16 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.geektrust.model.EmblemEnum;
-import com.geektrust.model.MessageDTO;
+import com.geektrust.model.SecretMessage;
 
-public class SecretMessageService {
+public class MessageValidator {
 
-	public List<String> validateSecretMessages(List<MessageDTO> messageDTOList) {
+	public List<String> validateSecretMessages(List<SecretMessage> messageDTOList) {
 		List<String> alliesList = new ArrayList<String>();
-		for (MessageDTO messageDTO : messageDTOList) {
-			String animal = findAnimal(messageDTO.getKingdom());
-			if (verifyMessage(messageDTO.getMessage().toLowerCase(), animal.toLowerCase())) {
-				alliesList.add(messageDTO.getKingdom());
+		for (SecretMessage secretMessage : messageDTOList) {
+			if (verifyMessage(secretMessage)) {
+				alliesList.add(secretMessage.getSenderKingdom());
 			}
 		}
 		return alliesList;
@@ -41,7 +40,9 @@ public class SecretMessageService {
 		return animal;
 	}
 
-	private boolean verifyMessage(String message, String animal) {
+	public boolean verifyMessage(SecretMessage secretMessage) {
+		String message = secretMessage.getMessage(); 
+		String animal = findAnimal(secretMessage.getSenderKingdom());
 		int matchCount = 0;
 		for (int animalIndex = 0; animalIndex < animal.length(); animalIndex++) {
 			if (message.contains(String.valueOf(animal.charAt(animalIndex)))) {

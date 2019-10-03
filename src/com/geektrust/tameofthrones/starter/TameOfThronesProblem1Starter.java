@@ -1,22 +1,23 @@
-package com.geektrust.tameofthrones;
+package com.geektrust.tameofthrones.starter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.geektrust.model.EmblemEnum;
-import com.geektrust.model.MessageDTO;
+import com.geektrust.model.SecretMessage;
+import com.geektrust.tameofthrones.MessageValidator;
+import com.geektrust.tameofthrones.OutputWriter;
 import com.geektrust.tameofthrones.constants.TameOfThronesConstants;
 
 public class TameOfThronesProblem1Starter {
 
 	public static void main(String[] args) {
-		MessageDTO problem1Input1 = new MessageDTO("Air", "oaaawaala");
+		SecretMessage problem1Input1 = new SecretMessage("Air", "oaaawaala");
 
-		MessageDTO problem1Input2 = new MessageDTO("Land", "a1d22n333a4444p");
+		SecretMessage problem1Input2 = new SecretMessage("Land", "a1d22n333a4444p");
 
-		MessageDTO problem1Input3 = new MessageDTO("Ice", "zmzmzmzaztzozh");
+		SecretMessage problem1Input3 = new SecretMessage("Ice", "zmzmzmzaztzozh");
 
-		List<MessageDTO> problem1InputList = new ArrayList<MessageDTO>();
+		List<SecretMessage> problem1InputList = new ArrayList<SecretMessage>();
 		problem1InputList.add(problem1Input1);
 		problem1InputList.add(problem1Input2);
 		problem1InputList.add(problem1Input3);
@@ -25,10 +26,10 @@ public class TameOfThronesProblem1Starter {
 
 	}
 
-	private void golderCrown(List<MessageDTO> messageDTOList) {
+	private void golderCrown(List<SecretMessage> messageDTOList) {
 		List<String> alliesList = new ArrayList<String>();
-		OutputService outputService = new OutputService();
-		SecretMessageService secretMessageService = new SecretMessageService();
+		OutputWriter outputService = new OutputWriter();
+		MessageValidator secretMessageService = new MessageValidator();
 		if (messageDTOList.size() >= TameOfThronesConstants.MIN_RULER_COUNT) {
 			alliesList = secretMessageService.validateSecretMessages(messageDTOList);
 		}
