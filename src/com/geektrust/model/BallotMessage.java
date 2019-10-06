@@ -1,16 +1,23 @@
 package com.geektrust.model;
 
-public class BallotMessage extends SecretMessage {
-	
-	private String receiver;
+public class BallotMessage {
 
-	public BallotMessage(String sender, String receiver, String message) {
-		super(sender,message);
-		this.receiver = receiver;
+	private Kingdom senderKingdom;
+
+	private SecretMessage receiverSecretMessage;
+
+	public BallotMessage(Kingdom senderKingdom, SecretMessage receiverSecretMessage) {
+		super();
+		this.senderKingdom = senderKingdom;
+		this.receiverSecretMessage = receiverSecretMessage;
 	}
 
-	public String getReceiver() {
-		return receiver;
-	}	
-	
+	public Kingdom getSenderKingdom() {
+		return senderKingdom;
+	}
+
+	public SecretMessage getReceiverSecretMessage() {
+		return receiverSecretMessage;
+	}
+
 }

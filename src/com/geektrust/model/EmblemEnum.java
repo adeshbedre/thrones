@@ -2,7 +2,7 @@ package com.geektrust.model;
 
 public enum EmblemEnum {
 	
-	LAND("Panda"),WATER("Octopus"),ICE("Mammoth"),AIR("Owl"),FIRE("Dragon");
+	LAND("PANDA"),WATER("OCTUPUS"),ICE("MAMMOTH"),AIR("OWL"),FIRE("DRAGON");
 	
 	private String animal;
 	

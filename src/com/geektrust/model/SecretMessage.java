@@ -2,21 +2,23 @@ package com.geektrust.model;
 
 public class SecretMessage {
 
-	private String senderKingdom;
+	private Kingdom kingdom;
 
 	private String message;
 
-	public SecretMessage(String kingdom, String message) {
+	public SecretMessage(Kingdom kingdom, String message) {
 		super();
-		this.senderKingdom = kingdom;
+		this.kingdom = kingdom;
 		this.message = message;
 	}
 
-	public String getSenderKingdom() {
-		return senderKingdom;
+	public Kingdom getKingdom() {
+		return kingdom;
 	}
 
 	public String getMessage() {
 		return message;
 	}
+
+
 }
